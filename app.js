@@ -107,7 +107,30 @@ angular.module('ngSnake', [])
     $scope.make_active = function(col,row){
      
       $scope.board[col][row]=prompt("enter a letter");
+      
       var word_vertical =[];
+      var a=0;
+      var b=0;
+      for(var i=0;i<10;i++){
+        a++;
+        if(col-1-i<0){
+          break;
+        }
+        if($scope.board[col-1-i][row]===false && $scope.board[col-i][row] != false){
+          break;
+        }
+      }
+
+      for(var i =0;i<(10-col);i++){
+        b++;
+        if(col+i+1>9){
+          break;
+        }
+        if($scope.board[col+i][row]!=false && $scope.board[col+i+1][row] === false){
+          break;
+        }
+      }
+
       for(var i =9;i>-1;i--){
         word_vertical[9-i] = $scope.board[9-i][row];
       } 
@@ -130,10 +153,12 @@ angular.module('ngSnake', [])
       
       for(var i =0;i<(10-row);i++){
         n++;
+
         if($scope.board[col][row+i]!=false && $scope.board[col][row+i+1]===false){
           break;
         }
       }
+
       var j=0;
       for(var i = (row-(m-1));i<(row+n);i++){
         word_horizontal[j]=$scope.board[col][i];
@@ -141,7 +166,7 @@ angular.module('ngSnake', [])
 
       }
       
-     $scope.word=word_vertical;
+     $scope.word=a+b-1;
    
      
      $scope.word1=word_horizontal;
