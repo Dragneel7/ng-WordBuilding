@@ -14,7 +14,7 @@
               <td class="column"
                   ng-style="{'background-color': setStyling($parent.$index, $index)}"
                   ng-repeat="row in column track by $index" ng-click="make_active($parent.$index,$index)"
-              >{{value($parent.$index,$index)}}</td>
+              ><p>{{value($parent.$index,$index)}}</p></td>
           </tr>
     </table>
     {{word}}
