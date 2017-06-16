@@ -85,8 +85,13 @@ angular.module('ngSnake', [])
       else if($scope.board[col][row]==='z'){
         return 'z';
       }
+      
     }
 
+    
+    
+
+    
      $scope.setStyling = function(col, row) {
       if($scope.board[col][row] === false){
       return 'grey';
@@ -102,8 +107,15 @@ angular.module('ngSnake', [])
     $scope.make_active = function(col,row){
      
       $scope.board[col][row]=prompt("enter a letter");
-
+      var word =[];
+      for(var i =col;i>-1;i--){
+        word[col-i] = $scope.board[col-i][row];
+      } 
+      
+     $scope.word=word;
+      
       value();
+     
 
     }
     function setupBoard() {
