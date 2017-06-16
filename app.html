@@ -17,9 +17,12 @@
               ><p>{{value($parent.$index,$index)}}</p></td>
           </tr>
     </table>
-    {{word}}
-    {{word1}}
-
+    <h2> Player Turn : {{player === 1 ? 'Player1' : 'Player2'}}</h2>
+      <div class="words">
+      <h3>letters entered</h3>
+        {{word}}
+        {{word1}}
+      </div>
     </div>
       
       

@@ -1,7 +1,7 @@
 angular.module('ngSnake', [])
 
   .controller('snakeCtrl', function($scope, $timeout, $window) {
-    var BOARD_SIZE = 10;
+    var BOARD_SIZE = 18;
 
   
     
@@ -88,16 +88,20 @@ angular.module('ngSnake', [])
       
     }
 
-    
+    var Player1=1,Player2=2;
+    $scope.player=Player1;
     
 
     
      $scope.setStyling = function(col, row) {
       if($scope.board[col][row] === false){
-      return 'grey';
-    }
-    if($scope.board[col][row] != false){
       return 'lightgrey';
+    }
+    if($scope.board[col][row] != false && $scope.player === Player1){
+      return '#d580ff';
+    }
+     if($scope.board[col][row] != false && $scope.player === Player2){
+      return '#8080ff';
     }
     
 
@@ -111,7 +115,7 @@ angular.module('ngSnake', [])
       var word_vertical =[];
       var a=0;
       var b=0;
-      for(var i=0;i<10;i++){
+      for(var i=0;i<18;i++){
         a++;
         if(col-1-i<0){
           break;
@@ -121,9 +125,9 @@ angular.module('ngSnake', [])
         }
       }
 
-      for(var i =0;i<(10-col);i++){
+      for(var i =0;i<(18-col);i++){
         b++;
-        if(col+i+1>9){
+        if(col+i+1>17){
           break;
         }
         if($scope.board[col+i][row]!=false && $scope.board[col+i+1][row] === false){
@@ -144,7 +148,7 @@ angular.module('ngSnake', [])
       var n=0;
       
 
-      for(var i=0;i<10;i++){
+      for(var i=0;i<18;i++){
         m++;
         if(row-1-i<0){
           break;
@@ -155,7 +159,7 @@ angular.module('ngSnake', [])
         }
       }
       
-      for(var i =0;i<(10-row);i++){
+      for(var i =0;i<(18-row);i++){
         n++;
 
         if($scope.board[col][row+i]!=false && $scope.board[col][row+i+1]===false){
@@ -174,6 +178,7 @@ angular.module('ngSnake', [])
    
      
      $scope.word1=word_horizontal;
+   $scope.player = $scope.player ===Player1 ? Player2 : Player1;
       value();
      
 
