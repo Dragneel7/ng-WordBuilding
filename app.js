@@ -113,12 +113,37 @@ angular.module('ngSnake', [])
       } 
 
       var word_horizontal=[];
+      var m=0;
+      var n=0;
+      
+
+      for(var i=0;i<10;i++){
+        m++;
+        if(row-1-i<0){
+          break;
+        }
+        if($scope.board[col][row-1-i]===false && $scope.board[col][row-i] !=false ){
+
+          break;
+        }
+      }
+      
+      for(var i =0;i<(10-row);i++){
+        n++;
+        if($scope.board[col][row+i]!=false && $scope.board[col][row+i+1]===false){
+          break;
+        }
+      }
+      
       for(var i = 9;i>-1;i--){
         word_horizontal[9-i]=$scope.board[col][9-i];
+
       }
       
      $scope.word=word_vertical;
-     $scope.word1=word_horizontal ;
+   
+     
+     $scope.word1=m+n-1 ;
       value();
      
 
