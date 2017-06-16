@@ -107,17 +107,23 @@ angular.module('ngSnake', [])
     $scope.make_active = function(col,row){
      
       $scope.board[col][row]=prompt("enter a letter");
-      var word =[];
-      for(var i =col;i>-1;i--){
-        word[col-i] = $scope.board[col-i][row];
+      var word_vertical =[];
+      for(var i =9;i>-1;i--){
+        word_vertical[9-i] = $scope.board[9-i][row];
       } 
+
+      var word_horizontal=[];
+      for(var i = 9;i>-1;i--){
+        word_horizontal[9-i]=$scope.board[col][9-i];
+      }
       
-     $scope.word=word;
-      
+     $scope.word=word_vertical;
+     $scope.word1=word_horizontal ;
       value();
      
 
     }
+    
     function setupBoard() {
      
       $scope.board = [];
