@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app='ngSnake'>
+
+  <head>
+    <link rel="stylesheet" type="text/css" href="app.css">
+  </head> 
+
+  <body ng-controller="snakeCtrl">
+
+    <div id="gameContainer">
+      
+     <table>
+          <tr class="row" ng-repeat="column in board">
+              <td class="column"
+                  ng-style="{'background-color': setStyling($parent.$index, $index)}"
+                  ng-repeat="row in column track by $index" ng-click="make_active($parent.$index,$index)"
+              >{{value($parent.$index,$index)}}</td>
+          </tr>
+    </table>
+
+    </div>
+      
+      
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js">
+</script>
+    <script src="app.js"></script> 
+  </body>
+
+</html>

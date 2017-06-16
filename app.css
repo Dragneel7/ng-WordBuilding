@@ -1,0 +1,28 @@
+#gameContainer, #pastScores {
+	width: 564px;
+	height: 580px;
+	float: left;
+	margin-top:25px;
+	background-size: 100%;
+	border:2px solid black;
+
+}
+.row {
+	height: 50px;
+}
+
+.column {
+	border: 1px solid black;
+	padding:2px;
+	width: 50px;
+	height: 50px;
+	display: inline-block;
+	background-size: 49px;
+
+}
+input#letter{
+	margin-left: 10px;
+}
+table{
+	background-color: red;
+}
