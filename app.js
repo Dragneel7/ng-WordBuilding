@@ -221,7 +221,7 @@ var combine = function(a,min,val,m,n){
     }
     
     var j =1;
-    for(var i =(m+1);i<(n+1);i++){
+    for(var i =(m+1);i<(m+n+1);i++){
       array[j]=array[j-1]+a[i];
       j++;
     }
