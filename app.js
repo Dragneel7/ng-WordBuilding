@@ -3,6 +3,15 @@ angular.module('ngSnake', [])
   .controller('snakeCtrl', function($scope) {
     var BOARD_SIZE = 18;
 
+    $http.get('dictionary.txt').then(function(response){
+    var x =response.data;
+    
+    if(x.indexOf('surya')>=0){
+      console.log("word is found");
+      }
+    else{console.log("word is not present");}
+  
+  });
   
     window.onbeforeunload = function() {
   return "Data will be lost if you leave the page, are you sure?";
@@ -109,7 +118,9 @@ angular.module('ngSnake', [])
 
     };
 
-      
+        
+
+
     $scope.make_active = function(col,row){
      
       $scope.board[col][row]=prompt("enter a letter");
