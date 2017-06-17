@@ -205,58 +205,26 @@ angular.module('ngSnake', [])
    }
     setupBoard();
 
-    /*var combine = function(a, min,val) {
-    var fn = function(n, src, got, all) {
-        if (n == 0) {
-            if (got.length > 0) {
-                all[all.length] = got;
-            }
-            return;
-        }
-        for (var j = 0; j < src.length; j++) {
-            fn(n - 1, src.slice(j + 1), got.concat([src[j]]), all);
-        }
-        return;
-    }
-    var all = [];
-    for (var i = min; i < a.length; i++) {
-        fn(i, a, [], all);
-    }
-    all.push(a);
-    var x = all.length;
-    for(var i=0;i<x;i++){
-      var y = all[i].length;
-      var flag = false;
-      for(var j=0;j<y;j++){
-        if(all[i][j]==val){
-          flag=true;
-        }
-      }
-      if(flag==false){
-        delete all[i];
-      }
-
-    }
-    return all;
-}*/
+   
 var combine = function(a,min,val,m,n){
   var all=[];
-  var array = [];
+  
   var length = a.length;
   var index = m;
   //all elements of length 
   while(index>=0){
+    var array = [];
     array[0] = a[index];
     var j =1;
     for(var i =(index+1);i<=(n+index);i++){
       array[j]=array[j-1]+a[i];
       j++;
     }
-  
+    all.push(array);
     n=n+1;
     index=index-1;
   }
-     all.push(array); 
+     
 return all;
 }
     

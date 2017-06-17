@@ -38,7 +38,13 @@ h2{
 	bottom:550px;
 }
 div.words{
-	position: absolute;
-	left:600px;
-	bottom:500px;
+	position: fixed;
+	left:900px;
+	bottom:50px;
+	width:400px;
+	height: 600px;
+	border:1px solid black;
+	overflow-y: scroll;
 }
+
+
