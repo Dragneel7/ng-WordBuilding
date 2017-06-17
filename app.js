@@ -1,10 +1,12 @@
 angular.module('ngSnake', [])
 
-  .controller('snakeCtrl', function($scope, $timeout, $window) {
+  .controller('snakeCtrl', function($scope) {
     var BOARD_SIZE = 18;
 
   
-    
+    window.onbeforeunload = function() {
+  return "Data will be lost if you leave the page, are you sure?";
+};
 
     $scope.value=function(col,row){
       if($scope.board[col][row]==='a'){
@@ -93,14 +95,14 @@ angular.module('ngSnake', [])
     
 
     
-     $scope.setStyling = function(col, row) {
+     $scope.setStyling = function(col, row,player) {
       if($scope.board[col][row] === false){
       return 'lightgrey';
     }
-    if($scope.board[col][row] != false && $scope.player === Player1){
+    if($scope.board[col][row] != false && player === Player1){
       return '#d580ff';
     }
-     if($scope.board[col][row] != false && $scope.player === Player2){
+     if($scope.board[col][row] != false){
       return '#8080ff';
     }
     
@@ -173,11 +175,14 @@ angular.module('ngSnake', [])
         j++;
 
       }
-      
-     $scope.word=word_vertical;
-   
-     
+        //to get all possible words of length greater than or eqaul to 2
+
+       var word_vertical1=combine(word_vertical,2,$scope.board[col][row],(a-1),(b-1));
+
+     $scope.word=word_vertical1;
      $scope.word1=word_horizontal;
+   
+
    $scope.player = $scope.player ===Player1 ? Player2 : Player1;
       value();
      
@@ -200,7 +205,60 @@ angular.module('ngSnake', [])
    }
     setupBoard();
 
+    /*var combine = function(a, min,val) {
+    var fn = function(n, src, got, all) {
+        if (n == 0) {
+            if (got.length > 0) {
+                all[all.length] = got;
+            }
+            return;
+        }
+        for (var j = 0; j < src.length; j++) {
+            fn(n - 1, src.slice(j + 1), got.concat([src[j]]), all);
+        }
+        return;
+    }
+    var all = [];
+    for (var i = min; i < a.length; i++) {
+        fn(i, a, [], all);
+    }
+    all.push(a);
+    var x = all.length;
+    for(var i=0;i<x;i++){
+      var y = all[i].length;
+      var flag = false;
+      for(var j=0;j<y;j++){
+        if(all[i][j]==val){
+          flag=true;
+        }
+      }
+      if(flag==false){
+        delete all[i];
+      }
 
+    }
+    return all;
+}*/
+var combine = function(a,min,val,m,n){
+  var all=[];
+  var array = [];
+  var length = a.length;
+  var index = m;
+  //all elements of length 
+  while(index>=0){
+    array[0] = a[index];
+    var j =1;
+    for(var i =(index+1);i<=(n+index);i++){
+      array[j]=array[j-1]+a[i];
+      j++;
+    }
+  
+    n=n+1;
+    index=index-1;
+  }
+     all.push(array); 
+return all;
+}
     
 
   });

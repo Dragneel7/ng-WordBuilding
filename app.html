@@ -12,7 +12,7 @@
      <table>
           <tr class="row" ng-repeat="column in board">
               <td class="column"
-                  ng-style="{'background-color': setStyling($parent.$index, $index)}"
+                  ng-style="{'background-color': setStyling($parent.$index, $index,player)}"
                   ng-repeat="row in column track by $index" ng-click="make_active($parent.$index,$index)"
               ><p>{{value($parent.$index,$index)}}</p></td>
           </tr>
