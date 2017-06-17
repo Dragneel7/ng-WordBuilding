@@ -178,9 +178,10 @@ angular.module('ngSnake', [])
         //to get all possible words of length greater than or eqaul to 2
 
        var word_vertical1=combine(word_vertical,2,$scope.board[col][row],(a-1),(b-1));
+       var word_horizontal1=combine(word_horizontal,2,$scope.board[col][row],(m-1),(n-1));
 
      $scope.word=word_vertical1;
-     $scope.word1=word_horizontal;
+     $scope.word1=word_horizontal1;
    
 
    $scope.player = $scope.player ===Player1 ? Player2 : Player1;
