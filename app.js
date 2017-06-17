@@ -215,14 +215,18 @@ var combine = function(a,min,val,m,n){
   //all elements of length 
   while(index>=0){
     var array = [];
-    array[0] = a[index];
+    array[0]=a[index]
+    for(var i=(index+1);i<=m;i++){
+      array[0]=array[0]+a[i];
+    }
+    
     var j =1;
-    for(var i =(index+1);i<=(n+index);i++){
+    for(var i =(m+1);i<(n+1);i++){
       array[j]=array[j-1]+a[i];
       j++;
     }
     all.push(array);
-    n=n+1;
+   
     index=index-1;
   }
      
