@@ -263,6 +263,8 @@ return all;
     var j=0;
     for(var i =0; i<a.length;i++){
       var word1 = a[i].toUpperCase();
+      // word has been modified or else indexOf() function returns that part in any word irrespective of it being a word
+      // dictionary has been correspondingly modified 
       var word = "1"+word1+"1";
       console.log(word);
       if(x.indexOf(word)>=0){
