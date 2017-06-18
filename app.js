@@ -89,8 +89,18 @@ angular.module('ngSnake', [])
       else if($scope.board[col][row]==='z'){
         return 'z';
       }
+      else if($scope.board[col][row]===""){
+           $scope.board[col][row]=false;
+      if($scope.player===Player2){
+      $scope.score_player1=$scope.score_player1-10;
+        }
+      else if($scope.player===Player1){
+          $scope.score_player2=$scope.score_player2-10;
+      }
+      }
        else{
         $scope.board[col][row]=false;
+
       }
     }
 
@@ -208,9 +218,10 @@ angular.module('ngSnake', [])
       var  acceptable_words_vertical = check_word(array1);
        var acceptable_words_horizontal = check_word(array2);
 
-         
+    
+
      $scope.word=acceptable_words_vertical;
-  
+     
      $scope.word1=acceptable_words_horizontal;
    
 
@@ -234,6 +245,7 @@ angular.module('ngSnake', [])
       }
       $scope.score_player1=0;
       $scope.score_player2=0;
+
    }
     setupBoard();
 
@@ -314,7 +326,7 @@ return all;
       alert("game is a draw");
     }
 
-    setupBoard();
+      location.reload();
   }
 
   });
