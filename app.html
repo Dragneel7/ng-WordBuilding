@@ -18,20 +18,30 @@
           </tr>
     </table>
     <h2> Player Turn : {{player === 1 ? 'Player1' : 'Player2'}}</h2>
+
+          <div class="score">
+            Score of Player1 : {{score_player1}}
+            <br>
+            Score of Player2 : {{score_player2}}
+          </div>
+
       <div class="words">
-      <h3>letters entered</h3>
+      <h3>PROBABLE WORDS FORMED</h3>
 
        <p style="color:red;"> {{word}}</p>
         <br>
         <br>
        <p style="color:blue;"> {{word1}}</p>
+  
+  
+   
       </div>
     </div>
       
       
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js">
 </script>
-    <script src="app.js"></script> 
+    <script src="app1.js"></script> 
   </body>
 
 </html>

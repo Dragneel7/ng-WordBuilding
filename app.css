@@ -9,6 +9,7 @@
 }
 .row {
 	height: 26px;
+
 }
 
 .column {
@@ -47,4 +48,9 @@ div.words{
 	overflow-y: scroll;
 }
 
-
+div.score{
+	position: absolute;
+	left:600px;
+	bottom:400px;
+	border:1px dashed black;
+}
