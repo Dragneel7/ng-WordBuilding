@@ -89,7 +89,9 @@ angular.module('ngSnake', [])
       else if($scope.board[col][row]==='z'){
         return 'z';
       }
-      
+       else{
+        $scope.board[col][row]=false;
+      }
     }
 
     var Player1=1,Player2=2;
@@ -206,9 +208,9 @@ angular.module('ngSnake', [])
       var  acceptable_words_vertical = check_word(array1);
        var acceptable_words_horizontal = check_word(array2);
 
-
+         
      $scope.word=acceptable_words_vertical;
-   
+  
      $scope.word1=acceptable_words_horizontal;
    
 
@@ -230,7 +232,8 @@ angular.module('ngSnake', [])
         
         }
       }
-      
+      $scope.score_player1=0;
+      $scope.score_player2=0;
    }
     setupBoard();
 
@@ -298,5 +301,20 @@ return all;
      return array;
   }  
      
+
+  $scope.endGame = function(){
+   
+    if($scope.score_player1>$scope.score_player2){
+      alert("player1 wins the game");
+    }
+    else if($scope.score_player2>$scope.score_player1){
+      alert("player2 wins the game");
+    }
+    else{
+      alert("game is a draw");
+    }
+
+    setupBoard();
+  }
 
   });

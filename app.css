@@ -54,3 +54,8 @@ div.score{
 	bottom:400px;
 	border:1px dashed black;
 }
+button{
+	position: absolute;
+	left:650px;
+	top:350px;
+}
