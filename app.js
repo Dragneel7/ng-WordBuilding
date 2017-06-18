@@ -3,16 +3,7 @@ angular.module('ngSnake', [])
   .controller('snakeCtrl', function($scope) {
     var BOARD_SIZE = 18;
 
-    $http.get('dictionary.txt').then(function(response){
-    var x =response.data;
-    
-    if(x.indexOf('surya')>=0){
-      console.log("word is found");
-      }
-    else{console.log("word is not present");}
-  
-  });
-  
+ 
     window.onbeforeunload = function() {
   return "Data will be lost if you leave the page, are you sure?";
 };
@@ -191,7 +182,18 @@ angular.module('ngSnake', [])
        var word_vertical1=combine(word_vertical,2,$scope.board[col][row],(a-1),(b-1));
        var word_horizontal1=combine(word_horizontal,2,$scope.board[col][row],(m-1),(n-1));
 
-     $scope.word=word_vertical1;
+
+       var array1 = [];
+       var k=0;
+       for(var i=0;i<word_vertical1.length;i++){
+        for(var j=0;j<word_vertical1[i].length;j++){
+          array1[k] = word_vertical1[i][j];
+          k++;
+        }
+       }
+
+
+     $scope.word=array1;
      $scope.word1=word_horizontal1;
    
 
