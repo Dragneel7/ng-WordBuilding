@@ -208,7 +208,7 @@ angular.module('ngSnake', [])
 
 
      $scope.word=acceptable_words_vertical;
-     
+   
      $scope.word1=acceptable_words_horizontal;
    
 
@@ -271,25 +271,28 @@ return all;
       var word = "1"+word1+"1";
      
       if(x.indexOf(word)>=0){
-        array.push(a[i]);
+        array[j]=a[i];
         j++;
       
       }
     }
-    var max = array[0].length;
-    for(var i=1;i<array.length;i++){
+
+    var max =0;
+    for(var i=0;i<array.length;i++){
       if(array[i].length>=max){
-        max=array[i].length;
+         max=array[i].length;
       }
-      if($scope.player===Player2){
+    } 
+
+     
+    if($scope.player===Player2){
         $scope.score_player1=$scope.score_player1+max;
       }
-       if($scope.player===Player1){
+    else if($scope.player===Player1){
         $scope.score_player2=$scope.score_player2+max;
       }
-     
-    }
-   
+
+
   });
      
      return array;
