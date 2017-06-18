@@ -206,16 +206,9 @@ angular.module('ngSnake', [])
       var  acceptable_words_vertical = check_word(array1);
        var acceptable_words_horizontal = check_word(array2);
 
-         //var max = acceptable_words_vertical[0];
-       /*if($scope.player === Player1){
-        $scope.score_player1 = $scope.score_player1 + 2;
-       }*/
-
-
-       //console.log(typeof acceptable_words_vertical);
 
      $scope.word=acceptable_words_vertical;
-     //$scope.word=max;
+     
      $scope.word1=acceptable_words_horizontal;
    
 
@@ -288,12 +281,13 @@ return all;
       if(array[i].length>=max){
         max=array[i].length;
       }
-      if($scope.player===Player1){
+      if($scope.player===Player2){
         $scope.score_player1=$scope.score_player1+max;
       }
-      else{
+       if($scope.player===Player1){
         $scope.score_player2=$scope.score_player2+max;
       }
+     
     }
    
   });
@@ -303,4 +297,3 @@ return all;
      
 
   });
-//x.indexOf(word)>=0
