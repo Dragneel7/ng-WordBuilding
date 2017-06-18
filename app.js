@@ -1,9 +1,9 @@
 angular.module('ngSnake', [])
 
-  .controller('snakeCtrl', function($scope) {
+  .controller('snakeCtrl', function($scope,$http) {
     var BOARD_SIZE = 18;
 
- 
+
     window.onbeforeunload = function() {
   return "Data will be lost if you leave the page, are you sure?";
 };
@@ -192,9 +192,19 @@ angular.module('ngSnake', [])
         }
        }
 
+       var array2 = [];
+       var m=0;
+         for(var i=0;i<word_horizontal1.length;i++){
+        for(var j=0;j<word_horizontal1[i].length;j++){
+          array2[m] = word_horizontal1[i][j];
+          m++;
+        }
+       }
 
-     $scope.word=array1;
-     $scope.word1=word_horizontal1;
+       var acceptable_words_vertical = check_word(array1);
+
+     $scope.word=acceptable_words_vertical;
+     $scope.word1=array2;
    
 
    $scope.player = $scope.player ===Player1 ? Player2 : Player1;
@@ -245,6 +255,27 @@ var combine = function(a,min,val,m,n){
      
 return all;
 }
+  var check_word = function(a){
+     var array= [];
+     $http.get('dictionary.txt').then(function(response){
+    var x =response.data;
     
+    var j=0;
+    for(var i =0; i<a.length;i++){
+      var word1 = a[i].toUpperCase();
+      var word = "1"+word1+"1";
+      console.log(word);
+      if(x.indexOf(word)>=0){
+        array[j]=word;
+        j++;
+        console.log("hello");
+      }
+    }
+   
+  });
+     return array;
+  }  
+     
 
   });
+//x.indexOf(word)>=0
