@@ -257,7 +257,7 @@ return all;
 }
   var check_word = function(a){
      var array= [];
-     $http.get('dictionary.txt').then(function(response){
+     $http.get('dictionary_mod.txt').then(function(response){
     var x =response.data;
     
     var j=0;
