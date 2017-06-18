@@ -202,9 +202,9 @@ angular.module('ngSnake', [])
        }
 
        var acceptable_words_vertical = check_word(array1);
-
+       var acceptable_words_horizontal = check_word(array2);
      $scope.word=acceptable_words_vertical;
-     $scope.word1=array2;
+     $scope.word1=acceptable_words_horizontal;
    
 
    $scope.player = $scope.player ===Player1 ? Player2 : Player1;
