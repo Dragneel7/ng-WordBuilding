@@ -11,84 +11,9 @@ angular.module('ngSnake', [])
 };
 
     $scope.value=function(col,row){
-      if($scope.board[col][row]==='a'){
-        return 'a';
-      }
-       else if($scope.board[col][row]==='b'){
-        return 'b';
-      }
-      else if($scope.board[col][row]==='c'){
-        return 'c';
-      }
-      else if($scope.board[col][row]==='d'){
-        return 'd';
-      }
-      else if($scope.board[col][row]==='e'){
-        return 'e';
-      }
-      else if($scope.board[col][row]==='f'){
-        return 'f';
-      }
-      else if($scope.board[col][row]==='g'){
-        return 'g';
-      }
-      else if($scope.board[col][row]==='h'){
-        return 'h';
-      }
-      else if($scope.board[col][row]==='i'){
-        return 'i';
-      }
-      else if($scope.board[col][row]==='j'){
-        return 'j';
-      }
-      else if($scope.board[col][row]==='k'){
-        return 'k';
-      }
-      else if($scope.board[col][row]==='l'){
-        return 'l';
-      }
-      else if($scope.board[col][row]==='m'){
-        return 'm';
-      }
-      else if($scope.board[col][row]==='n'){
-        return 'n';
-      }
-      else if($scope.board[col][row]==='o'){
-        return 'o';
-      }
-      else if($scope.board[col][row]==='p'){
-        return 'p';
-      }
-      else if($scope.board[col][row]==='q'){
-        return 'q';
-      }
-      else if($scope.board[col][row]==='r'){
-        return 'r';
-      }
-      else if($scope.board[col][row]==='s'){
-        return 's';
-      }
-      else if($scope.board[col][row]==='t'){
-        return 't';
-      }
-      else if($scope.board[col][row]==='u'){
-        return 'u';
-      }
-      else if($scope.board[col][row]==='v'){
-        return 'v';
-      }
-      else if($scope.board[col][row]==='w'){
-        return 'w';
-      }
-      else if($scope.board[col][row]==='x'){
-        return 'x';
-      }
-      else if($scope.board[col][row]==='y'){
-        return 'y';
-      }
-      else if($scope.board[col][row]==='z'){
-        return 'z';
-      }
+      if($scope.board[col][row]>='a' && $scope.board[col][row]<='z'){
+		return $scope.board[col][row];
+	} 
       else if($scope.board[col][row]===""){
            $scope.board[col][row]=false;
       if($scope.player===Player2){
